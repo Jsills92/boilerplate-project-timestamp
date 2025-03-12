@@ -25,37 +25,54 @@ app.get("/api/hello", function (req, res) {
   res.json({greeting: 'hello API'});
 });
 
-app.get("/api/:date?", (req, res) => {
-  let dateParam = req.params.date;
+app.get("/api/", (req, res) => {
+  let currentDate = new Date();
+  console.log("Received request with no date, returning current date:", currentDate.toUTCString());
+  res.json({
+    unix: currentDate.getTime(),
+    utc: currentDate.toUTCString()
+  });
+});
 
-  //return current date if no date is provided
-  if(!dateParam) {
+app.get("/api/:date?", (req, res) => {
+  console.log("Received request with params:", req.params);  // Log the params
+  
+  let dateParam = req.params.date;
+  console.log("Received date parameter:", dateParam);
+
+  // If no date provided, return current date
+  if (!dateParam) {
     let currentDate = new Date();
     return res.json({
       unix: currentDate.getTime(),
       utc: currentDate.toUTCString()
     });
-  };
+  }
 
   let date;
 
-  if(!isNaN(dateParam)) {
-    date = new Date(parseInt(dateParam)); //convert timestamp to Date object
+  // Handle if the date is a valid timestamp (i.e., all numeric)
+  if (!isNaN(dateParam)) {
+    date = new Date(parseInt(dateParam)); // Convert timestamp to Date object
+    console.log("Parsed date from timestamp:", date.toUTCString());
   } else {
-    date = new Date(dateParam); //try to convert string date
-  };
+    date = new Date(dateParam); // Try to convert string date
+    console.log("Parsed date from string:", date.toUTCString());
+  }
 
-  if(date.toString() === "Invalid Date") {
+  if (date.toString() === "Invalid Date") {
+    console.log("Invalid date received:", dateParam);
     return res.json({ error: "Invalid Date" });
-  };
+  }
 
   res.json({
     unix: date.getTime(),
     utc: date.toUTCString()
   });
-
-
 });
+
+
+
 
 
 
