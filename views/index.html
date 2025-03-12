@@ -3,7 +3,7 @@
 <html>
    <head>
       <title>Timestamp Microservice | freeCodeCamp.org</title>
-      <link rel="shortcut icon" href="https://cdn.freecodecamp.org/universal/favicons/favicon-32x32.png" type="image/x-icon"/>
+      <link rel="shortcut icon" href="/images/Eternal-PNG.png" type="image/x-icon"/>
       <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
       <link href="style.css" rel="stylesheet" type="text/css">
    </head>
@@ -12,6 +12,18 @@
     <h1>Timestamp Microservice</h1>
     <hr />
     <div class="container">
+      <h2>What this app does:</h2>
+      <p>
+        This web app provides a simple API that can convert dates into a Unix timestamp or a UTC date format. It can process two types of input:
+      </p>
+      <ul>
+        <li><strong>Date String:</strong> You can provide a human-readable date (e.g., "2015-12-25") to get back a Unix timestamp (number of milliseconds since Jan 1, 1970) and the date in a standardized UTC format.</li>
+        <li><strong>Unix Timestamp:</strong> You can also provide a Unix timestamp (e.g., 1451001600000), and it will return the date in both Unix timestamp and UTC formats.</li>
+      </ul>
+
+      <p>
+        To use the API, you can either manually add <strong>/api</strong> at the end of the URL with a date or timestamp (e.g., <strong>[project url]/api/2015-12-25</strong>) or simply click on the links below to try the examples.
+      </p>
         <h2>Example Usage:</h2>
         <ul>
             <li><a id="example1" href="#">Loading...</a></li>
@@ -45,6 +57,9 @@
         document.getElementById("currentTime").href = baseUrl + "/api/";
         document.getElementById("currentTime").innerText = baseUrl + "/api/ (Current Time)";
     </script>
+
+    <img src="/images/Eternal-PNG.png" alt="Eternal PNG" class="bottom-right-image" />
+
 
   </body>
 </html>
