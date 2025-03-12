@@ -12,21 +12,39 @@
     <h1>Timestamp Microservice</h1>
     <hr />
     <div class="container">
-      <h2>Example Usage:</h2>
-      <ul>
-        <li><a href="api/2015-12-25">[project url]/api/2015-12-25</a></li>
-        <li><a href="api/1451001600000">[project url]/api/1451001600000</a></li>
-      </ul>
+        <h2>Example Usage:</h2>
+        <ul>
+            <li><a id="example1" href="#">Loading...</a></li>
+            <li><a id="example2" href="#">Loading...</a></li>
+            <li><a id="currentTime" href="#">Loading...</a></li>
+        </ul>
 
-      <h2>Example Output:</h2>
-      <p>
-        <code>{"unix":1451001600000, "utc":"Fri, 25 Dec 2015 00:00:00 GMT"}</code>
-      </p>
+        <h2>Example Output:</h2>
+        <p>
+            <code>{"unix":1451001600000, "utc":"Fri, 25 Dec 2015 00:00:00 GMT"}</code>
+        </p>
     </div>
+
     <div class="footer">
-      <p>
-        By Jake using the guidance of <a href="https://www.freecodecamp.org/">freeCodeCamp.org</a>
-      </p>
+        <p>
+            By Jake using the guidance of <a href="https://www.freecodecamp.org/">freeCodeCamp.org</a>
+        </p>
     </div>
+
+    <script>
+        // Get the project URL dynamically
+        const baseUrl = window.location.origin;
+
+        // Set example links
+        document.getElementById("example1").href = baseUrl + "/api/2015-12-25";
+        document.getElementById("example1").innerText = baseUrl + "/api/2015-12-25";
+
+        document.getElementById("example2").href = baseUrl + "/api/1451001600000";
+        document.getElementById("example2").innerText = baseUrl + "/api/1451001600000";
+
+        document.getElementById("currentTime").href = baseUrl + "/api/";
+        document.getElementById("currentTime").innerText = baseUrl + "/api/ (Current Time)";
+    </script>
+
   </body>
 </html>
